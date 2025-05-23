@@ -18,17 +18,6 @@
                     </el-input>
                 </el-col>
                 <el-col :span="12">
-                    <el-select v-model="mosaicSelect" class="HfilesVideo-search-select" @change="reloadData">
-                        <el-option :label="$t('h.allMosaic')" value="0" />
-                        <el-option :label="$t('h.noMosaic')" value="1" />
-                        <el-option :label="$t('h.mosaic')" value="2" />
-                    </el-select>
-                    <el-select v-model="categorySelect" class="HfilesVideo-search-select" @change="reloadData">
-                        <el-option :label="$t('h.allCategory')" value="0" />
-                        <el-option label="REAL" value="1" />
-                        <el-option label="3D MMD" value="2" />
-                        <el-option label="2D" value="3" />
-                    </el-select>
                     <div style="float: right;">
                         <el-switch v-model="showVideoCover" />
                         <span class="HfilesVideo-showVideoCover-text">{{ $t("static.previewImage") }}</span>
@@ -47,22 +36,6 @@
             class="HfilesVideo-card"
             >
                 <span class="HfilesVideo-card-name-text">{{ item.name }}</span>
-                <span class="HfilesVideo-card-number-text">{{ item.number }}</span>
-                <el-tag
-                class="HfilesVideo-card-mosaic-text"
-                effect="plain"
-                :type="item.mosaicType"
-                >
-                <span class="HfilesVideo-card-tag-text">{{ item.mosaicText }}</span>
-                </el-tag>
-                <el-tag
-                class="HfilesVideo-card-category-text"
-                effect="plain"
-                :type="item.categoryType"
-                round
-                >
-                <span class="HfilesVideo-card-tag-text">{{ item.categoryText }}</span>
-                </el-tag>
                 <div class="HfilesVideo-card-tags-div">
                     <span class="HfilesVideo-card-tag-text">TAGS:</span>
                     <el-tag

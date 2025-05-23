@@ -7,26 +7,8 @@
             <el-container>
                 <el-aside :width="asideWidth">
                     <div>
-                        <p class="HfilesVideoPlayer-title">{{ $t("static.videoCode") }}</p>
-                        <p class="HfilesVideoPlayer-text">{{ videoData.number }}</p>
                         <p class="HfilesVideoPlayer-title">{{ $t("static.filename") }}</p>
                         <p class="HfilesVideoPlayer-text">{{ videoData.filename }}</p>
-                        <p class="HfilesVideoPlayer-title">{{ $t("static.category") }}</p>
-                        <el-tag
-                        class="HfilesVideoPlayer-category-tag"
-                        effect="plain"
-                        :type="videoData.mosaicType"
-                        >
-                        <span class="HfilesVideo-card-tag-text">{{ videoData.mosaicText }}</span>
-                        </el-tag>
-                        <el-tag
-                        class="HfilesVideoPlayer-category-tag"
-                        effect="plain"
-                        :type="videoData.categoryType"
-                        round
-                        >
-                        <span class="HfilesVideo-card-tag-text">{{ videoData.categoryText }}</span>
-                        </el-tag>
                         <p class="HfilesVideoPlayer-title">TAGS:</p>
                         <el-tag
                         v-for="(item,i) in videoData.hvideoTagList"
@@ -48,26 +30,8 @@
             </el-container>
         </el-container>
         <div v-if="isMobile"> <!-- 一个重复的信息菜单 用于在页面过于狭窄时使用 -->
-            <p class="HfilesVideoPlayer-title">{{ $t("static.videoCode") }}</p>
-            <p class="HfilesVideoPlayer-text">{{ videoData.number }}</p>
             <p class="HfilesVideoPlayer-title">{{ $t("static.filename") }}</p>
             <p class="HfilesVideoPlayer-text">{{ videoData.filename }}</p>
-            <p class="HfilesVideoPlayer-title">{{ $t("static.category") }}</p>
-            <el-tag
-            class="HfilesVideoPlayer-category-tag"
-            effect="plain"
-            :type="videoData.mosaicType"
-            >
-            <span class="HfilesVideo-card-tag-text">{{ videoData.mosaicText }}</span>
-            </el-tag>
-            <el-tag
-            class="HfilesVideoPlayer-category-tag"
-            effect="plain"
-            :type="videoData.categoryType"
-            round
-            >
-            <span class="HfilesVideo-card-tag-text">{{ videoData.categoryText }}</span>
-            </el-tag>
             <p class="HfilesVideoPlayer-title">TAGS:</p>
             <el-tag
             v-for="(item,i) in videoData.hvideoTagList"

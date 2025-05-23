@@ -20,7 +20,8 @@
         <el-scrollbar :height="scrollbarHeight">
             <div class="project-message-item-body-div">
                 <el-button style="margin: 0px 0px 10px 10px;" type="primary" @click="clickAddProjectItem"><el-icon size="15"><Plus /></el-icon></el-button>
-                <el-timeline>
+                <el-button style="margin: 0px 0px 10px 10px;" type="success" @click="clickChangeMode" plain><el-icon size="15"><Finished /></el-icon></el-button>
+                <el-timeline v-if="!isTable">
                     <el-timeline-item v-if="isAdd">
                         <el-card>
                             <el-form ref="projectItemFormRef" :model="projectItemForm" :rules="projectItemFormRules" label-width="auto">
@@ -88,6 +89,62 @@
                         </div>
                     </el-timeline-item>
                 </el-timeline>
+                <el-table v-if="isTable" :data="projectItemData">
+                    <el-table-column prop="createUserName">
+                        <template #header>
+                            创建者
+                        </template>
+                    </el-table-column>
+                    <el-table-column prop="createTime">
+                        <template #header>
+                            创建时间
+                        </template>
+                    </el-table-column>
+                    <el-table-column prop="title">
+                        <template #header>
+                            任务
+                        </template>
+                    </el-table-column>
+                    <el-table-column prop="text">
+                        <template #header>
+                            内容
+                        </template>
+                    </el-table-column>
+                    <el-table-column prop="assignUserAvatar">
+                        <template #header>
+                            负责人
+                        </template>
+                        <template #default="scope">
+                            <p v-if="!(scope.row.assignUserAvatar == null)" @click="clickPickUser(scope.row)" class="project-message-user-message-text">{{ scope.row.assignUserName }}</p>
+                            <p v-if="scope.row.assignUserAvatar == null" @click="clickPickUser(scope.row)" class="project-message-user-message-text">{{ $t("static.noMemberAssigned") }}</p>
+                        </template>
+                    </el-table-column>
+                    <el-table-column prop="isEnded">
+                        <template #header>
+                            状态
+                        </template>
+                        <template #default="scope">
+                            <el-tooltip
+                                        effect="dark"
+                                        placement="top-end"
+                                    >
+                                        <template #content>
+                                            <span class="project-message-item-footer-tooltip">{{ $t("static.notFinished") }}</span>
+                                        </template>
+                                        <el-icon @click="clickEnd(scope.row)" v-if="scope.row.isEnded == 0" style="color: #E6A23C;" size="20"><Warning /></el-icon>
+                                    </el-tooltip>
+                                    <el-tooltip
+                                        effect="dark"
+                                        placement="top-end"
+                                    >
+                                        <template #content>
+                                            <span class="project-message-item-footer-tooltip">{{ $t("static.isFinished") }}</span>
+                                        </template>
+                                        <el-icon v-if="scope.row.isEnded == 1" style="color: #67C23A;" size="20"><SuccessFilled /></el-icon>
+                                    </el-tooltip>
+                        </template>
+                    </el-table-column>
+                </el-table>
             </div>
         </el-scrollbar>
         <div class="project-message-pagination-div">
@@ -153,6 +210,7 @@ const endItemTitle = ref("") //当前选择完成的 项目条目标题
 const endItemUuid = ref("") //当前选择完成的 项目条目 uuid
 const pickUserItemUuid = ref("") //当前选择指派的 项目条目 uuid
 const isAdd = ref(false) //是否显示 添加项目条目 时间轴
+const isTable = ref(false) //是否为表格视图
 
 const projectItemForm = reactive //添加 projectItem 的表单
 ({
@@ -213,6 +271,11 @@ const clickBack = () => //点击返回
         name: 'Project',
         path: '/Project',
     })
+}
+
+const clickChangeMode = () =>
+{
+    isTable.value = !isTable.value
 }
 
 const clickAddProjectItem = () => //点击新增 项目条目

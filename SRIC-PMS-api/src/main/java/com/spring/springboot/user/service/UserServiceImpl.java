@@ -341,6 +341,7 @@ public class UserServiceImpl implements UserService
         catch (IOException e)
         {
             System.out.println("保存文件：" + avatarFileName + " 失败");
+            System.out.println(e);
             return 400;
         }
     }
