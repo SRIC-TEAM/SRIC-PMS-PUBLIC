@@ -15,12 +15,6 @@
                             <span class="H-files-index-menu-item-span">{{ $t("menu.video") }}</span>
                         </template>
                     </el-menu-item>
-                    <el-menu-item index="HfilesComic">
-                        <el-icon :size="25"><Monitor /></el-icon>
-                        <template #title>
-                            <span class="H-files-index-menu-item-span">{{ $t("menu.comic") }}</span>
-                        </template>
-                    </el-menu-item>
                     <el-menu-item index="HfilesPicture">
                         <el-icon :size="25"><Picture /></el-icon>
                         <template #title>

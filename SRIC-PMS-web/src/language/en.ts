@@ -138,7 +138,7 @@ export default
     mainMenu:
     {
         Library: "LIBRARY",
-        Hfiles: "H-files",
+        Hfiles: "MEDIA",
         Notes: "NOTES",
         Resources: "RESOURCES",
         Project: "PROJECT",
@@ -153,7 +153,7 @@ export default
         user: "user",
         permissionRequest: "interface",
         permissionMainMenu: "main menu",
-        hManage: "H MANAGE",
+        hManage: "MEDIA",
         hComicTag: "comic-tag",
         hVideoTag: "video-tag",
         hPictureUplaod: "picture-upload",

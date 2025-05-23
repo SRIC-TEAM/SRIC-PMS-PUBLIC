@@ -50,18 +50,6 @@
                                 <span class="manage-index-menu-item-span">{{ $t("menu.hVideoTag") }}</span>
                             </template>
                         </el-menu-item>
-                        <el-menu-item index="HComicManage">
-                            <el-icon :size="25"><Monitor /></el-icon>
-                            <template #title>
-                                <span class="manage-index-menu-item-span">{{ $t("menu.comic") }}</span>
-                            </template>
-                        </el-menu-item>
-                        <el-menu-item index="HComicTagManage">
-                            <el-icon :size="25"><Discount /></el-icon>
-                            <template #title>
-                                <span class="manage-index-menu-item-span">{{ $t("menu.hComicTag") }}</span>
-                            </template>
-                        </el-menu-item>
                         <el-menu-item index="HPictureUpload">
                             <el-icon :size="25"><Upload /></el-icon>
                             <template #title>

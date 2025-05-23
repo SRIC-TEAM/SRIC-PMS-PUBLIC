@@ -11,7 +11,7 @@ import VueAxios from 'vue-axios'
 import i18n from './language'//多语言
 
 const VLANurl = 'http://192.168.196.0:45565'
-const LANurl = 'http://192.168.50.102:45565'
+const LANurl = 'http://192.168.0.30:45565'
 const NETurl = 'http://172.16.2.1:45565'
 const LOCALurl = 'http://localhost:45565'
 

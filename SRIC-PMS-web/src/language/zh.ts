@@ -138,7 +138,7 @@ export default
     mainMenu:
     {
         Library: "知识库",
-        Hfiles: "H-files",
+        Hfiles: "媒体",
         Notes: "笔记",
         Resources: "资源",
         Project: "项目",
@@ -153,7 +153,7 @@ export default
         user: "用户",
         permissionRequest: "接口权限",
         permissionMainMenu: "菜单权限",
-        hManage: "H内容管理",
+        hManage: "媒体管理",
         hComicTag: "漫画-标签",
         hVideoTag: "视频-标签",
         hPictureUplaod: "图片上传",
